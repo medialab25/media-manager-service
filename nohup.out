@@ -8,23 +8,229 @@
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 104-760-477
-127.0.0.1 - - [09/Apr/2025 12:36:06] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
- * Detected change in '/home/mortd/mms/src/app/core/config.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
-127.0.0.1 - - [09/Apr/2025 12:36:55] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
-127.0.0.1 - - [09/Apr/2025 12:37:20] "POST /merge-folders HTTP/1.1" 200 -
-127.0.0.1 - - [09/Apr/2025 12:38:31] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 13:36:16] "POST /merge-folders HTTP/1.1" 200 -
  * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 13:45:42] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 13:47:15] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 13:48:20] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+f1
+f2
+f1
+f1
+f2
+f1
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Found directory f1 with postfix: f1
+DEBUG:src.app.core.merge:Skipping f1 - postfix f1 not in quality list
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-hd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-hd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Found directory f2 with postfix: f2
+DEBUG:src.app.core.merge:Skipping f2 - postfix f2 not in quality list
+DEBUG:src.app.core.merge:Found directory f1 with postfix: f1
+DEBUG:src.app.core.merge:Skipping f1 - postfix f1 not in quality list
+DEBUG:src.app.core.merge:Merge operation completed
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:50:44] "POST /merge-folders HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Found directory f1 with postfix: f1
+DEBUG:src.app.core.merge:Skipping f1 - postfix f1 not in quality list
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-hd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-hd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Found directory f2 with postfix: f2
+DEBUG:src.app.core.merge:Skipping f2 - postfix f2 not in quality list
+DEBUG:src.app.core.merge:Found directory f1 with postfix: f1
+DEBUG:src.app.core.merge:Skipping f1 - postfix f1 not in quality list
+DEBUG:src.app.core.merge:Merge operation completed
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:51:49] "POST /merge-folders HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:52:44] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:55:12] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Postfix: 
+DEBUG:src.app.core.merge:Found directory f1 with postfix: 
+DEBUG:src.app.core.merge:Skipping f1 - postfix  not in quality list
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-hd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-hd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Postfix: 
+DEBUG:src.app.core.merge:Found directory f2 with postfix: 
+DEBUG:src.app.core.merge:Skipping f2 - postfix  not in quality list
+DEBUG:src.app.core.merge:Found directory f1 with postfix: 
+DEBUG:src.app.core.merge:Skipping f1 - postfix  not in quality list
+DEBUG:src.app.core.merge:Merge operation completed
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:55:28] "POST /merge-folders HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Postfix:  : tv-uhd
+DEBUG:src.app.core.merge:Found directory f1 with postfix: 
+DEBUG:src.app.core.merge:Skipping f1 - postfix  not in quality list
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-hd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-hd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Postfix:  : tv-hd
+DEBUG:src.app.core.merge:Found directory f2 with postfix: 
+DEBUG:src.app.core.merge:Skipping f2 - postfix  not in quality list
+DEBUG:src.app.core.merge:Found directory f1 with postfix: 
+DEBUG:src.app.core.merge:Skipping f1 - postfix  not in quality list
+DEBUG:src.app.core.merge:Merge operation completed
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:55:45] "POST /merge-folders HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+DEBUG:src.app.core.merge:Initializing FolderMerger with input_folders: ['/srv/media/tv-uhd', '/srv/media/tv-hd'], output_folder: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Starting merge operation
+DEBUG:src.app.core.merge:Created output directory: /srv/media/tv-merged
+DEBUG:src.app.core.merge:Processing input folder: /srv/media/tv-uhd
+DEBUG:src.app.core.merge:Processing directory: /srv/media/tv-uhd -> /srv/media/tv-merged
+DEBUG:src.app.core.merge:Postfix: uhd : tv-uhd
+DEBUG:src.app.core.merge:Found directory f1 with postfix: uhd
+DEBUG:src.app.core.merge:Creating quality marker: /srv/media/tv-merged/f1/.quality_uhd
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:56:01] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 104-760-477
+INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 14:10:26] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:11:11] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 14:13:14] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:13:33] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:14:12] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 14:15:23] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:15:41] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:15:58] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 14:16:59] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:17:10] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:17:21] "POST /merge-folders HTTP/1.1" 200 -

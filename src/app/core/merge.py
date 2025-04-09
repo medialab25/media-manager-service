@@ -5,7 +5,9 @@ import os
 import shutil
 from pathlib import Path
 from typing import List, Set
+from .config import Settings
 
+settings = Settings()
 
 class FolderMerger:
     """Handles merging folders with priority-based hard links."""
@@ -20,54 +22,104 @@ class FolderMerger:
         self.input_folders = [Path(f) for f in input_folders]
         self.output_folder = Path(output_folder)
 
-    def _create_hard_links(self, source: Path, target: Path) -> None:
-        """Recursively create hard links for a folder tree.
+    def _get_quality_index(self, quality: str) -> int:
+        """Get index of quality in quality_list."""
+        try:
+            return settings.merge["quality_list"].index(quality.lower())
+        except ValueError:
+            return -1
 
-        Args:
-            source: Source directory path
-            target: Target directory path
-        """
-        target.mkdir(parents=True, exist_ok=True)
+    def _get_current_quality(self, target_path: Path) -> str:
+        """Get current quality from quality marker files."""
+        for q in settings.merge["quality_list"]:
+            if (target_path / f".quality-{q}").exists():
+                return q
+        return None
 
-        for item in source.iterdir():
-            source_path = source / item.name
-            target_path = target / item.name
+    def _cleanup_quality_markers(self, target_path: Path) -> None:
+        """Remove all quality marker files from target path."""
+        for q in settings.merge["quality_list"]:
+            marker = target_path / f".quality-{q}"
+            if marker.exists():
+                marker.unlink()
 
-            if source_path.is_file():
-                if not target_path.exists():
-                    os.link(source_path, target_path)
-            elif source_path.is_dir():
-                self._create_hard_links(source_path, target_path)
-
-    def _get_source_paths(self) -> Set[Path]:
-        """Get all paths from source folders."""
-        source_paths = set()
+    def _get_best_available_quality(self, target_path: Path) -> str:
+        """Get best available quality from input folders."""
+        best_quality = None
+        best_idx = len(settings.merge["quality_list"])
+        
         for input_folder in self.input_folders:
             if not input_folder.exists():
                 continue
-            for root, _, _ in os.walk(input_folder):
-                source_paths.add(Path(root).relative_to(input_folder))
-        return source_paths
+                
+            quality = input_folder.name.split('-')[-1] if '-' in input_folder.name else ''
+            if quality.lower() not in settings.merge["quality_list"]:
+                continue
+                
+            if (input_folder / target_path.name).exists():
+                idx = self._get_quality_index(quality)
+                if idx < best_idx:
+                    best_idx = idx
+                    best_quality = quality
+                    
+        return best_quality
 
-    def _cleanup_extra_folders(self) -> None:
-        """Remove folders in target that aren't in source folders."""
-        source_paths = self._get_source_paths()
-
-        for root, dirs, _ in os.walk(self.output_folder, topdown=False):
-            rel_path = Path(root).relative_to(self.output_folder)
-            if rel_path not in source_paths:
-                shutil.rmtree(root)
+    def _update_quality(self, target_path: Path, new_quality: str) -> None:
+        """Update quality marker for a directory."""
+        self._cleanup_quality_markers(target_path)
+        (target_path / f".quality-{new_quality.lower()}").touch()
 
     def merge(self) -> None:
         """Merge input folders into output using hard links."""
-        # Create output structure
         self.output_folder.mkdir(parents=True, exist_ok=True)
 
-        # Process each input folder in priority order
+        # Process each input folder
         for input_folder in self.input_folders:
             if not input_folder.exists():
                 continue
-            self._create_hard_links(input_folder, self.output_folder)
 
-        # Cleanup extra folders
-        self._cleanup_extra_folders()
+            quality = input_folder.name.split('-')[-1] if '-' in input_folder.name else ''
+            if quality.lower() not in settings.merge["quality_list"]:
+                continue
+
+            for item in input_folder.iterdir():
+                if not item.is_dir():
+                    continue
+
+                target_path = self.output_folder / item.name
+                target_path.mkdir(parents=True, exist_ok=True)
+
+                current_quality = self._get_current_quality(target_path)
+                if current_quality:
+                    current_idx = self._get_quality_index(current_quality)
+                    new_idx = self._get_quality_index(quality)
+                    if new_idx >= current_idx:
+                        continue
+
+                self._update_quality(target_path, quality)
+
+        # Check for removed higher quality folders
+        for item in self.output_folder.iterdir():
+            if not item.is_dir():
+                continue
+
+            current_quality = self._get_current_quality(item)
+            if not current_quality:
+                continue
+
+            # Check if current quality still exists
+            found = False
+            for input_folder in self.input_folders:
+                if not input_folder.exists():
+                    continue
+                    
+                quality = input_folder.name.split('-')[-1] if '-' in input_folder.name else ''
+                if quality.lower() == current_quality and (input_folder / item.name).exists():
+                    found = True
+                    break
+
+            if not found:
+                best_quality = self._get_best_available_quality(item)
+                if best_quality:
+                    self._update_quality(item, best_quality)
+

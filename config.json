@@ -5,6 +5,7 @@
     "app_name": "Media Manager Service",
     "merge": {
         "input_folders": ["/srv/media/tv-uhd", "/srv/media/tv-hd"],
-        "output_folder": "/srv/media/tv-merged"
+        "output_folder": "/srv/media/tv-merged",
+        "quality_list": ["uhd", "hd"]
     }
 } 
