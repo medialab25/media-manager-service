@@ -1,0 +1,15 @@
+[Unit]
+Description=Media Manager Service
+After=network.target
+
+[Service]
+Type=simple
+User=%USER%
+WorkingDirectory=%WORKDIR%
+Environment="PATH=%WORKDIR%/venv/bin"
+ExecStart=%WORKDIR%/venv/bin/python -m src.app
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target 
