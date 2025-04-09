@@ -64,6 +64,16 @@ stop() {
     status
 }
 
+# Function to kill all instances
+killall() {
+    echo -e "${YELLOW}Killing all service instances...${NC}"
+    pkill -9 -f "python -m src.app"
+    if [ "$MODE" = "systemd" ]; then
+        systemctl --user stop mms
+    fi
+    echo -e "${GREEN}All instances killed${NC}"
+}
+
 # Function to start service
 start() {
     echo -e "${YELLOW}Starting service...${NC}"
@@ -158,8 +168,11 @@ case "$1" in
     config)
         config
         ;;
+    killall)
+        killall
+        ;;
     *)
-        echo "Usage: $0 {start|stop|restart|status|logs|enable|disable|update|config}"
+        echo "Usage: $0 {start|stop|restart|status|logs|enable|disable|update|config|killall}"
         echo "Mode: $MODE"
         exit 1
         ;;
