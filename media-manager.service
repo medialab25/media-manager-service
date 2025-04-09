@@ -4,13 +4,12 @@ After=network.target
 
 [Service]
 Type=simple
-User=%USER%
-WorkingDirectory=%WORKDIR%
-Environment="PATH=%WORKDIR%/venv/bin"
-Environment="PYTHONPATH=%WORKDIR%"
-ExecStart=%WORKDIR%/venv/bin/python3 -m src.app
+WorkingDirectory=/home/media/media-manager-service
+Environment="PATH=/home/media/media-manager-service/venv/bin"
+Environment="PYTHONPATH=/home/media/media-manager-service"
+ExecStart=/home/media/media-manager-service/venv/bin/python3 -m src.app
 Restart=always
 RestartSec=10
 
 [Install]
-WantedBy=multi-user.target 
+WantedBy=default.target 
