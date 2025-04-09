@@ -3,13 +3,14 @@ Flask server configuration and initialization.
 """
 from flask import Flask
 from .config import settings
-from ..api import health_bp
+from ..api import health_bp, media_bp
 
 app = Flask(__name__)
 app.config.from_object(settings)
 
 # Register blueprints
 app.register_blueprint(health_bp)
+app.register_blueprint(media_bp)
 
 
 def run_server():

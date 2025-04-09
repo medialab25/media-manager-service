@@ -23,6 +23,7 @@ class Settings:
                 "host": "0.0.0.0",
                 "debug": True,
                 "app_name": "Media Manager Service",
+                "jellyfin": {"url": "http://localhost:8096", "api_key": ""},
             }
             # Create default config if it doesn't exist
             with open(self.config_path, "w") as f:
@@ -32,6 +33,10 @@ class Settings:
         self.host = config.get("host", "0.0.0.0")
         self.debug = config.get("debug", True)
         self.app_name = config.get("app_name", "Media Manager Service")
+        self.jellyfin_url = config.get("jellyfin", {}).get(
+            "url", "http://localhost:8096"
+        )
+        self.jellyfin_api_key = config.get("jellyfin", {}).get("api_key", "")
 
     def reload(self):
         """Reload configuration from file."""
