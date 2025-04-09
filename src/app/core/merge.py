@@ -65,9 +65,35 @@ class FolderMerger:
         return best_quality
 
     def _update_quality(self, target_path: Path, new_quality: str) -> None:
-        """Update quality marker for a directory."""
+        """Update quality marker for a directory and create hard links recursively."""
         self._cleanup_quality_markers(target_path)
         (target_path / f".quality-{new_quality.lower()}").touch()
+
+        # Find source folder with matching quality
+        source_path = None
+        for input_folder in self.input_folders:
+            if not input_folder.exists():
+                continue
+            quality = input_folder.name.split('-')[-1] if '-' in input_folder.name else ''
+            if quality.lower() == new_quality.lower():
+                source_path = input_folder / target_path.name
+                break
+
+        if not source_path or not source_path.exists():
+            return
+
+        # Create hard links recursively
+        for root, _, files in os.walk(source_path):
+            rel_path = Path(root).relative_to(source_path)
+            target_dir = target_path / rel_path
+            target_dir.mkdir(parents=True, exist_ok=True)
+            
+            for file in files:
+                source_file = Path(root) / file
+                target_file = target_dir / file
+                if target_file.exists():
+                    target_file.unlink()
+                os.link(source_file, target_file)
 
     def merge(self) -> None:
         """Merge input folders into output using hard links."""

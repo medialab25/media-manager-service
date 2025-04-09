@@ -234,3 +234,17 @@ INFO:werkzeug: * Detected change in '/home/mortd/mms/src/app/core/merge.py', rel
 127.0.0.1 - - [09/Apr/2025 14:16:59] "POST /merge-folders HTTP/1.1" 200 -
 127.0.0.1 - - [09/Apr/2025 14:17:10] "POST /merge-folders HTTP/1.1" 200 -
 127.0.0.1 - - [09/Apr/2025 14:17:21] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 14:19:53] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:20:09] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:20:13] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:20:56] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:21:22] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 14:22:49] "POST /merge-folders HTTP/1.1" 200 -
+ * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
