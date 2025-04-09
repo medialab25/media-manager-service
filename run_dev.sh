@@ -8,7 +8,8 @@ else
     exit 1
 fi
 
-# Run Flask development server
-export FLASK_APP=src.app:app
-export FLASK_ENV=development
-flask run --host=0.0.0.0 --port=5000 
+# Run the service in direct mode
+./manage.sh start
+
+# Show logs
+./manage.sh logs 

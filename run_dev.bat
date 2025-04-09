@@ -9,9 +9,8 @@ if not exist venv (
 :: Activate virtual environment
 call venv\Scripts\activate.bat
 
-:: Set Flask environment variables
-set FLASK_APP=src.app:app
-set FLASK_ENV=development
+:: Run the service in direct mode
+call manage.sh start
 
-:: Run Flask development server
-flask run --host=0.0.0.0 --port=5000 
+:: Show logs
+call manage.sh logs 
