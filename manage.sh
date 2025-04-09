@@ -91,7 +91,21 @@ update() {
         pip install -r requirements.txt
     fi
     
+    # Reload config if it changed
+    if git diff --name-only HEAD@{1} HEAD | grep -q "config.json"; then
+        echo -e "${YELLOW}Configuration changed, reloading...${NC}"
+    fi
+    
     start
+}
+
+# Function to show config
+config() {
+    if [ -f "config.json" ]; then
+        cat config.json
+    else
+        echo -e "${RED}Config file not found${NC}"
+    fi
 }
 
 # Function to enable/disable service
@@ -141,8 +155,11 @@ case "$1" in
     update)
         update
         ;;
+    config)
+        config
+        ;;
     *)
-        echo "Usage: $0 {start|stop|restart|status|logs|enable|disable|update}"
+        echo "Usage: $0 {start|stop|restart|status|logs|enable|disable|update|config}"
         echo "Mode: $MODE"
         exit 1
         ;;

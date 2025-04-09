@@ -1,9 +1,7 @@
 """
 Application entry point.
 """
-from .core.server import create_app
+from .core.server import run_server
 
-app = create_app()
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True) 
+if __name__ == "__main__":
+    run_server()

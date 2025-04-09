@@ -1,0 +1,6 @@
+{
+    "port": 5000,
+    "host": "0.0.0.0",
+    "debug": true,
+    "app_name": "Media Manager Service"
+} 
