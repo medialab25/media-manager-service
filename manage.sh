@@ -16,7 +16,7 @@ fi
 # Function to check if service is running
 is_running() {
     if [ "$MODE" = "systemd" ]; then
-        systemctl --user is-active --quiet mms
+        systemctl --user is-active --quiet media-manager
     else
         pgrep -f "python -m src.app" > /dev/null
     fi
@@ -27,7 +27,7 @@ status() {
     if is_running; then
         echo -e "${GREEN}Service is running${NC}"
         if [ "$MODE" = "systemd" ]; then
-            systemctl --user status mms --no-pager
+            systemctl --user status media-manager --no-pager
         else
             ps aux | grep "python -m src.app" | grep -v grep
         fi
@@ -39,7 +39,7 @@ status() {
 # Function to show logs
 logs() {
     if [ "$MODE" = "systemd" ]; then
-        journalctl --user -u mms -f
+        journalctl --user -u media-manager -f
     else
         tail -f nohup.out 2>/dev/null || echo "No log file found. Start the service first."
     fi
@@ -57,7 +57,7 @@ restart() {
 stop() {
     echo -e "${YELLOW}Stopping service...${NC}"
     if [ "$MODE" = "systemd" ]; then
-        systemctl --user stop mms
+        systemctl --user stop media-manager
     else
         pkill -f "python -m src.app"
     fi
@@ -69,7 +69,7 @@ killall() {
     echo -e "${YELLOW}Killing all service instances...${NC}"
     pkill -9 -f "python -m src.app"
     if [ "$MODE" = "systemd" ]; then
-        systemctl --user stop mms
+        systemctl --user stop media-manager
     fi
     echo -e "${GREEN}All instances killed${NC}"
 }
@@ -78,7 +78,7 @@ killall() {
 start() {
     echo -e "${YELLOW}Starting service...${NC}"
     if [ "$MODE" = "systemd" ]; then
-        systemctl --user start mms
+        systemctl --user start media-manager
     else
         nohup python -m src.app > nohup.out 2>&1 &
     fi
@@ -122,7 +122,7 @@ config() {
 enable() {
     if [ "$MODE" = "systemd" ]; then
         echo -e "${YELLOW}Enabling service to start on boot...${NC}"
-        systemctl --user enable mms
+        systemctl --user enable media-manager
         status
     else
         echo -e "${RED}Enable/disable only available in systemd mode${NC}"
@@ -132,7 +132,7 @@ enable() {
 disable() {
     if [ "$MODE" = "systemd" ]; then
         echo -e "${YELLOW}Disabling service from starting on boot...${NC}"
-        systemctl --user disable mms
+        systemctl --user disable media-manager
         status
     else
         echo -e "${RED}Enable/disable only available in systemd mode${NC}"
