@@ -24,6 +24,7 @@ class Settings:
                 "debug": True,
                 "app_name": "Media Manager Service",
                 "jellyfin": {"url": "http://localhost:8096", "api_key": ""},
+                "merge": {"input_folders": [], "output_folder": ""},
             }
             # Create default config if it doesn't exist
             with open(self.config_path, "w") as f:
@@ -37,6 +38,7 @@ class Settings:
             "url", "http://localhost:8096"
         )
         self.jellyfin_api_key = config.get("jellyfin", {}).get("api_key", "")
+        self.merge = config.get("merge", {"input_folders": [], "output_folder": ""})
 
     def reload(self):
         """Reload configuration from file."""

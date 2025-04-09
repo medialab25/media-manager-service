@@ -14,7 +14,7 @@ def merge_folders():
     """Merge folders endpoint."""
     try:
         merger = FolderMerger(
-            settings.merge.input_folders, settings.merge.output_folder
+            settings.merge["input_folders"], settings.merge["output_folder"]
         )
         merger.merge()
         return (

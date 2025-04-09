@@ -8,37 +8,19 @@
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 104-760-477
-127.0.0.1 - - [09/Apr/2025 11:58:19] "[35m[1mPOST /media-refresh HTTP/1.1[0m" 500 -
-127.0.0.1 - - [09/Apr/2025 11:58:27] "[31m[1mPOST /merge-folders HTTP/1.1[0m" 415 -
+127.0.0.1 - - [09/Apr/2025 12:36:06] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
+ * Detected change in '/home/mortd/mms/src/app/core/config.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 12:36:55] "[35m[1mPOST /merge-folders HTTP/1.1[0m" 500 -
  * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
+127.0.0.1 - - [09/Apr/2025 12:37:20] "POST /merge-folders HTTP/1.1" 200 -
+127.0.0.1 - - [09/Apr/2025 12:38:31] "POST /merge-folders HTTP/1.1" 200 -
  * Detected change in '/home/mortd/mms/src/app/core/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 104-760-477
- * Detected change in '/home/mortd/mms/src/app/api/merge.py', reloading
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 104-760-477

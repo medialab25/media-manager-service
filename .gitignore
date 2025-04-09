@@ -33,4 +33,3 @@ ENV/
 # Environment variables
 .env 
 nohup.out
-nohup.out
